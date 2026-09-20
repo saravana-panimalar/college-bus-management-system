@@ -4,6 +4,6 @@ dist/
 coverage/
 .DS_Store
 *.log
-.local_turso.db
+local_turso.db
 .env*
 !.env.example
