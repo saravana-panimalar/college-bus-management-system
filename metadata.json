@@ -1,6 +1,6 @@
 {
   "name": "College Bus Management System",
-  "description": "A comprehensive college bus transportation management platform for administrators and students.",
+  "description": "A comprehensive college bus transportation management platform for Panimalar Engineering College, featuring 77 active bus routes, fleet tracking, and Turso libSQL database integration.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

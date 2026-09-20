@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Bus, Route, CheckCircle, GraduationCap, CalendarCheck, AlertTriangle } from 'lucide-react';
+import { Bus, Route, CheckCircle, GraduationCap, CalendarCheck, AlertTriangle, Bell } from 'lucide-react';
 import { DashboardCard } from '../components/ui/DashboardCard';
 import { busService } from '../services/busService';
 import { routeService } from '../services/routeService';
@@ -151,6 +151,3 @@ export const AdminDashboard: React.FC = () => {
     </div>
   );
 };
-
-// Simple Bell Icon for recent notifications mock
-import { Bell } from 'lucide-react';

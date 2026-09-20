@@ -1,16 +1,16 @@
 import { Bus } from '../types';
-import { mockBuses } from '../mock/mockBuses';
+import { panimalarBuses } from '../data/panimalarRoutes';
 import { apiRequest } from './apiConfig';
 
-// In-memory state for mock fallback
-let buses = [...mockBuses];
+// In-memory state for fallback seeded with the 77 Panimalar buses
+let buses = [...panimalarBuses];
 
 export const busService = {
   getBuses: async (): Promise<Bus[]> => {
     return apiRequest<Bus[]>(
       '/buses',
       { method: 'GET' },
-      () => new Promise((resolve) => setTimeout(() => resolve([...buses]), 150))
+      () => new Promise((resolve) => setTimeout(() => resolve([...buses]), 100))
     );
   },
   
@@ -18,7 +18,7 @@ export const busService = {
     return apiRequest<Bus>(
       `/buses/${id}`,
       { method: 'GET' },
-      () => new Promise((resolve) => setTimeout(() => resolve(buses.find(b => b.id === id)), 100))
+      () => new Promise((resolve) => setTimeout(() => resolve(buses.find(b => b.id === id)), 80))
     );
   },
 
@@ -30,9 +30,9 @@ export const busService = {
         body: JSON.stringify(bus)
       },
       () => new Promise((resolve) => {
-        const newBus = { ...bus, id: `B${Math.floor(Math.random() * 1000).toString().padStart(3, '0')}` };
+        const newBus = { ...bus, id: `B-${(buses.length + 1).toString().padStart(2, '0')}` };
         buses.push(newBus);
-        setTimeout(() => resolve(newBus), 150);
+        setTimeout(() => resolve(newBus), 100);
       })
     );
   },
@@ -48,7 +48,7 @@ export const busService = {
         const index = buses.findIndex(b => b.id === id);
         if (index === -1) reject(new Error('Bus not found'));
         buses[index] = { ...buses[index], ...bus };
-        setTimeout(() => resolve(buses[index]), 150);
+        setTimeout(() => resolve(buses[index]), 100);
       })
     );
   },
@@ -59,8 +59,9 @@ export const busService = {
       { method: 'DELETE' },
       () => new Promise((resolve) => {
         buses = buses.filter(b => b.id !== id);
-        setTimeout(() => resolve(), 150);
+        setTimeout(() => resolve(), 100);
       })
     );
   }
 };
+

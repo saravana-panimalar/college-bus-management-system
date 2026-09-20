@@ -53,9 +53,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen })
       )}>
         <div className="flex h-full flex-col">
           {/* Logo area */}
-          <div className="flex h-16 shrink-0 items-center px-6 border-b border-gray-200">
-            <BusIcon className="h-8 w-8 text-blue-600" />
-            <span className="ml-3 text-lg font-bold text-gray-900">CollegeBus</span>
+          <div className="flex h-16 shrink-0 items-center px-5 border-b border-gray-200">
+            <div className="rounded-lg bg-blue-100 p-2 text-blue-600 mr-3">
+              <BusIcon className="h-6 w-6" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold text-gray-900 leading-tight">Panimalar Bus</span>
+              <span className="text-[11px] font-medium text-blue-600">77 Active Routes</span>
+            </div>
             <button
               type="button"
               className="ml-auto lg:hidden text-gray-500"

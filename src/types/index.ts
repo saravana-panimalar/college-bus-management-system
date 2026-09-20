@@ -30,6 +30,8 @@ export interface Route {
   estimatedTime: number; // in minutes
   assignedBusId: string | null;
   status: 'Active' | 'Inactive';
+  sourceTime?: string;
+  destinationTime?: string;
 }
 
 export interface Student {
