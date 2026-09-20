@@ -904,7 +904,7 @@ This project is intended for educational and academic purposes.
 
 ---
 
-# Author
+# Authors
 
 **Saravanakumar G**
 
